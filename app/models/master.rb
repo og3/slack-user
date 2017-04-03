@@ -6,4 +6,5 @@ class Master < ApplicationRecord
 
   has_many :teams, through: :master_teams
   has_many :master_teams
+  has_many :users
 end

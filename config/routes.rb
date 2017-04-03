@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     invitations: 'masters/invitations'
     }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-root 'masters#new'
+  root 'masters#new'
+  resources :teams
 end

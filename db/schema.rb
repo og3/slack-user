@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403085631) do
+ActiveRecord::Schema.define(version: 20170403233438) do
 
   create_table "master_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "master_id",  null: false
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20170403085631) do
     t.text     "memo",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name", null: false
+    t.string   "last_name",  null: false
+    t.string   "user_name",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "master_teams", "masters"

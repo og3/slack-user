@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     # @teamにmasterインスタンスをもたせて、そこにログイン中のユーザー情報をいれる
-    @team.masters << current_user
+    @team.masters << current_master
     if @team.save
       redirect_to root_path
     else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402080905) do
+ActiveRecord::Schema.define(version: 20170403085036) do
 
   create_table "masters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                          null: false
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20170402080905) do
     t.string   "unconfirmed_email"
     t.index ["email"], name: "index_masters_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_masters_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                     null: false
+    t.string   "purpose"
+    t.text     "memo",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end

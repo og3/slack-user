@@ -33,6 +33,6 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :purpose, { master_ids:[] })
+    params.require(:team).permit(:name, :purpose, :memo, { master_ids:[] })
   end
 end

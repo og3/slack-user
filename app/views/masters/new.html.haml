@@ -10,9 +10,9 @@
     %li.list__item
       = link_to "サインイン", new_master_session_path, class: "list__item__text"
     %li.list__item
-      = link_to "チーム作成", class: "list__item__text"
+      = link_to "チーム作成", new_team_path, class: "list__item__text"
 .body
 = if master_signed_in?
   %p ログイン中のユーザー
-  = current_user.user_name
+  = current_master.email
   

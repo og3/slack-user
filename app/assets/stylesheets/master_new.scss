@@ -1,0 +1,232 @@
+// email入力画面のheader
+.master_header {
+  background-color: #E3E4E5;
+// header左側部分
+  &__left_content {
+    display: inline-block;
+    &__logo {
+      margin: 1rem;
+      width: 120px;
+      height: 37px;
+      background: url(https://a.slack-edge.com/66f9/img/slack_logo_240.png) no-repeat;
+      background-size: contain;
+    }
+  }
+// header右側部分
+  &__right_content {
+  list-style-type: none;
+  margin: 0 20px 0 0;
+  padding: 0;
+  float: right;
+  line-height: 4.375rem;
+    &__item {
+    float: left;
+      &__text {
+      text-decoration: none;
+      display: inline-block;
+      font-size: .9375rem;
+      font-weight: 700;
+      margin-left: 9px;
+      position: relative;
+      cursor: pointer;
+      line-height: 1em;
+      padding: 8px 7px 9px;
+      border-radius: 5px;
+      }
+    }
+  }
+}
+
+// password入力画面のheader
+.master_header_password {
+  background-color: #E3E4E5;
+  height: 70px;
+  &__logo {
+    height: 30px;
+    width: 105px;
+    float: left;
+    margin: 20px 0 0 1rem;
+    background-image: url(https://a.slack-edge.com/5eb00/img/landing/where_work_happens/logo-dark-blue@2x.png);
+    background-size: 105px 30px;
+  }
+}
+
+// email入力画面
+.master_email {
+  flex: 1 0 100%;
+  max-height: 750px;
+  background-color: #E3E4E5;
+  display: flex;
+  color: #253039;
+  position: relative;
+  padding: 4.25rem;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-image: url(https://a.slack-edge.com/5eb00/img/landing/where_work_happens/illustration_wall.png);
+  height: 550px;
+  &__headline{
+    padding-left: 120px;
+    &__top {
+      font-size: 70px;
+      font-weight: 900;
+    }
+    &__bottom {
+      font-size: 70px;
+      font-weight: 900;
+    }
+    &__message {
+      font-size: 15px;
+      line-height: 0.8;
+      margin-bottom: 20px;
+    }
+  &__email {
+    margin-bottom: 0;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+    border: 1px solid #B2B2B3;
+    font-size: 1.06875rem;
+    padding: 14px 13px;
+    color: #555459;
+    opacity: 1;
+  }
+  &__button{
+    border: 0;
+    margin: 0;
+    border-radius: 4px;
+    padding: 14px 32px;
+    cursor: pointer;
+    height: 53px;
+    display: inline-block;
+    font-size: 1.0625rem;
+    font-family: Slack-Lato,sans-serif;
+    font-weight: 700;
+    background-color: #42c299;
+    color: #fff !important;
+    text-shadow: none;
+    position: relative;
+  }
+  &__button:hover{
+    background-color: #3dbd94;
+  }
+  &__footer {
+    display: block;
+    padding-top: 10px;
+  }
+  }
+}
+
+// 仮置き inputとbuttonの間を空けるために
+.master_email__headline__input {
+  padding-right: 15px;
+  float: left;
+}
+
+// パスワード入力画面
+.master_password {
+  width: 30rem;
+  min-height: 90%;
+  margin: auto;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  display: flex;
+  font-size: 1rem;
+  position: relative;
+  &__body {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    align-self: center;
+    max-width: 100%;
+    font-size: 1rem;
+    & h1 {
+      font-size: 2.625rem;
+      line-height: 3rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+      font-family: sans-serif;
+      margin: 0 0 1rem;
+    }
+    & p {
+      color: #9e9ea6 !important;
+      margin: 0 0 1rem;
+      font-size: 1rem;
+    }
+    & label {
+      margin-bottom: .5rem;
+      font-weight: 400 !important;
+      margin: 0 0 .25rem;
+      display: block;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+    & input {
+      font-size: 1.25rem;
+      line-height: normal;
+      padding: .75rem;
+      border: 1px solid #C5C5C5;
+      border-radius: .25rem;
+      -webkit-appearance: none;
+      appearance: none;
+      outline: 0;
+      color: #555459;
+      width: 100%;
+      max-width: 100%;
+      font-family: sans-serif;
+      margin: 0 0 .5rem;
+      font-variant-ligatures: none;
+      -webkit-transition: box-shadow 70ms ease-out,border-color 70ms ease-out;
+      transition: box-shadow 70ms ease-out,border-color 70ms ease-out;
+      -webkit-font-smoothing: antialiased;
+      box-shadow: none;
+      height: auto;
+    }
+    & p {
+      color: #9e9ea6 !important;
+      margin: 0 0 1rem;
+    }
+    &__footer {
+      min-width: 100%;
+      margin-bottom: 1rem;
+      padding: .5rem 1rem;
+      margin: 0 auto;
+      text-align: center;
+      align-self: flex-end;
+      max-width: 100%;
+      &__container {
+        text-align: center;
+        font-size: 1rem;
+        & button {
+          padding: 12px 32px 18px;
+          font-size: 1.25rem;
+          background: #2ab27b;
+          color: #fff;
+          -webkit-font-smoothing: antialiased;
+          font-family: sans-serif;
+          line-height: 1.2rem;
+          font-weight: 900;
+          -webkit-user-select: none;
+          user-select: none;
+          text-decoration: none;
+          cursor: pointer;
+          text-shadow: 0 1px 1px rgba(0,0,0,.1);
+          border: none;
+          border-radius: .25rem;
+          box-shadow: none;
+          position: relative;
+          display: inline-block;
+          vertical-align: bottom;
+          text-align: center;
+          white-space: nowrap;
+          margin: 0;
+          & span {
+            position: relative;
+            z-index: 3;
+          }
+        }
+      }
+    }
+  }
+}
+

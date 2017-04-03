@@ -1,37 +1,49 @@
-.header
-  .team__purpose__header.name_pass
-    .team__purpose__header__logo
-  .header__logo.email
-  %ul.header__list.list.email
-    %li.list__item.email
-      = link_to "Product", "/", class: "list__item__text"
-    %li.list__item
-      = link_to "Pricing", "/", class: "list__item__text"
-    %li.list__item
-      = link_to "support", "/", class: "list__item__text"
-    %li.list__item
-      = link_to "user_icon", "/", class: "list__item__text"
-    %li.list__item
-      = link_to "menu", "/", class: "list__item__text"
+.master_header.email
+  .master_header__left_content
+    .master_header__left_content__logo
+  %ul.master_header__right_content
+    %li.master_header__right_content__item
+      = link_to "Product", "/", class: "master_header__right_content__item__text"
+    %li.master_header__right_content__item
+      = link_to "Pricing", "/", class: "master_header__right_content__item__text"
+    %li.master_header__right_content__item
+      = link_to "support", "/", class: "master_header__right_content__item__text"
+    %li.master_header__right_content__item
+      = link_to "user_icon", "/", class: "master_header__right_content__item__text"
+    %li.master_header__right_content__item
+      = link_to "menu", "/", class: "master_header__right_content__item__text"
 
-
+.master_header_password.password
+  .master_header_password__logo
 
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
-  .main.email
-    .main__headline
-      %p.main__headline__top Where work 
-      %p.main__headline__bottom happends.
-      %p.main__headline__message 
+  .master_email.email
+    .master_email__headline
+      %p.master_email__headline__top Where work 
+      %p.master_email__headline__bottom happends.
+      %p.master_email__headline__message 
         %br *Whatever work means for you, Slack brings all the pieces and 
         %br people you need together so you can actually get things done.
-      .main__header__input
-        = f.email_field :email, autofocus: true, placeholder: "email adress", class: "main__headline__email"
-      %input{type: "submit", value: "Create new team", class: "main__headline__button"}
-      %span.main__headline__footer
+      .master_email__headline__input
+        = f.email_field :email, autofocus: true, placeholder: "email adress", class: "master_email__headline__email"
+      %input{type: "button", value: "Create new team", class: "master_email__headline__button"}
+      %span.master_email__headline__footer
         Your team already uses Slack? 
-        %a{class: "main__headline__footer__link"}
+        %a{class: "master_email__headline__footer__link"}
           sign in
         or
-        %a{class: "main__headline__footer__link"}
+        %a{class: "master_email__headline__footer__link"}
           find your team.
+
+  .master_password.password
+    .master_password__body
+      %h1 Set your master_password
+      %p Choose a master_password for signing in to Slack.
+      %label master_Password
+      = f.password_field :password, autocomplete: "off", placeholder: "Password"
+      %p master_Passwords must be at least 6 characters long, and can’t be things like 
+      .master_password__body__footer
+        .master_password__body__footer__container
+          %button{type: "submit", class: "master_password__body__footer__container__button"}
+            %span Continue to Team Info

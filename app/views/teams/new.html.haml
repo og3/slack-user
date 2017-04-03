@@ -1,8 +1,8 @@
-.team__purpose__header
-  .team__purpose__header__logo
+.team_header
+  .team_header__logo
 
-= form_for @team, url: team_index_path do |f|
-  .team__name.tname
+= form_for @team do |f|
+  .team__name.team_name
     .team__name__form
       .team__name__form__body
         %h1 What's your team called?
@@ -13,14 +13,14 @@
         .team__name__form__button_container__btn
           %input{type: "button", value: "Continue to invite user →", class: "team_name_button"}
 
-  .team__purpose__form.tpurpose
+  .team__purpose__form.team_purpose
     .team__purpose__form__body
       %h1 Tell us about your team
       .team__purpose__form__body__use
         %p What will your team use Slack for?
-        = f.text_field :purpose, placeholder: "what for use slack?", class: "purpose__form__body__use__select team__purpose__input"
+        = f.text_field :purpose, placeholder: "what for use slack?", class: "team__purpose__form__body__use__input"
       .team__purpose__form__body__placeholder
         %p memo
-        = f.text_area :memo, placeholder: "memo", class: "team__purpose__form__body__placeholder__body team__memo__input"
+        = f.text_area :memo, placeholder: "memo", class: "team__purpose__form__body__use__input"
     .team__purpose__form__btn
       = f.submit "Continue to Group Name →", class: "team_purpose_button"

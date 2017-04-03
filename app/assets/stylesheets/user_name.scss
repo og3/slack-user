@@ -1,0 +1,174 @@
+.user_name {
+  width: 30rem;
+  min-height: 90%;
+  margin: auto;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  font-size: 1rem;
+  &__body {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    align-self: center;
+    max-width: 100%;
+    & h1 {
+      font-size: 2.625rem;
+      line-height: 3rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+      font-family: sans-serif;
+      margin: 0 0 1rem;
+    }
+    & p {
+      font-size: 1.25rem;
+      color: #9e9ea6;
+      margin-bottom: 2rem;
+      margin: 0 0 1rem;
+    }
+    &__your_name {
+      padding-bottom: 1rem !important;
+      padding-top: 0 !important;
+      & label {
+        margin-bottom: .5rem;
+        font-weight: 700;
+        margin: 0 0 .25rem;
+        display: block;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+      &__f_name {
+        width: 49.2%;
+        display: block;
+        float: left;
+        margin: 0 0 2%;
+        padding-right: 2%;
+        & input {
+          font-size: 1.25rem;
+          line-height: normal;
+          padding: .75rem;
+          border: 1px solid #C5C5C5;
+          border-radius: .25rem;
+          -webkit-appearance: none;
+          appearance: none;
+          outline: 0;
+          color: #555459;
+          width: 90%;
+          max-width: 100%;
+          font-family: Slack-Lato,appleLogo,sans-serif;
+          margin: 0 0 .5rem;
+          font-variant-ligatures: none;
+          -webkit-transition: box-shadow 70ms ease-out,border-color 70ms ease-out;
+          transition: box-shadow 70ms ease-out,border-color 70ms ease-out;
+          -webkit-font-smoothing: antialiased;
+          box-shadow: none;
+          height: auto;
+        }
+      }
+      &__l_name {
+        margin-left: 1.6%;
+        width: 48%;
+        display: block;
+        float: left;
+        margin: 0 0 2%;
+        padding: 0;
+        & input {
+          font-size: 1.25rem;
+          line-height: normal;
+          padding: .75rem;
+          border: 1px solid #C5C5C5;
+          border-radius: .25rem;
+          -webkit-appearance: none;
+          appearance: none;
+          outline: 0;
+          color: #555459;
+          width: 80%;
+          max-width: 100%;
+          font-family: sans-serif;
+          margin: 0 0 .5rem;
+          font-variant-ligatures: none;
+          -webkit-transition: box-shadow 70ms ease-out,border-color 70ms ease-out;
+          transition: box-shadow 70ms ease-out,border-color 70ms ease-out;
+          -webkit-font-smoothing: antialiased;
+          box-shadow: none;
+          height: auto;
+        }
+      }
+    }
+      &__user_name {
+        clear: both;
+        & label {
+          margin-bottom: .5rem;
+          font-weight: 700;
+          margin: 0 0 .25rem;
+          display: block;
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+        &__input {
+          position: relative;
+          & input {
+            font-size: 1.25rem;
+            line-height: normal;
+            padding: .75rem;
+            border: 1px solid #C5C5C5;
+            border-radius: .25rem;
+            -webkit-appearance: none;
+            appearance: none;
+            outline: 0;
+            color: #555459;
+            width: 90%;
+            max-width: 100%;
+            font-family: sans-serif;
+            margin: 0 0 .5rem;
+            font-variant-ligatures: none;
+            -webkit-transition: box-shadow 70ms ease-out,border-color 70ms ease-out;
+            transition: box-shadow 70ms ease-out,border-color 70ms ease-out;
+            -webkit-font-smoothing: antialiased;
+            box-shadow: none;
+            height: auto;
+          }
+        }
+        & p {
+            font-size: 0.8rem;
+            color: #9e9ea6 !important;
+            margin: 0 0 1rem;
+        }
+      }
+    &__submit {
+      margin-bottom: 1rem;
+      padding: .5rem 1rem;
+      &__container {
+        text-align: center;
+        & input {
+          padding: 12px 32px 18px;
+          font-size: 1.25rem;
+          background: #2ab27b;
+          color: #fff;
+          -webkit-font-smoothing: antialiased;
+          font-family: Slack-Lato,appleLogo,sans-serif;
+          line-height: 1.2rem;
+          font-weight: 900;
+          -webkit-user-select: none;
+          user-select: none;
+          text-decoration: none;
+          cursor: pointer;
+          text-shadow: 0 1px 1px rgba(0,0,0,.1);
+          border: none;
+          border-radius: .25rem;
+          box-shadow: none;
+          position: relative;
+          display: inline-block;
+          vertical-align: bottom;
+          text-align: center;
+          white-space: nowrap;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+

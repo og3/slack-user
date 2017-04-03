@@ -1,0 +1,2 @@
+class MasterTeam < ApplicationRecord
+end

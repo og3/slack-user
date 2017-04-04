@@ -1,7 +1,7 @@
 .team_header
   .team_header__logo
 
-= form_for @user do |f|
+= form_for @user, url: team_users_path do |f|
   .user_name.name
     .user_name__body
       %h1 What’s your name?

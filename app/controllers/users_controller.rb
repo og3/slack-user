@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   private
   def user_params
   # 入力された値のうち、指定したカラムに入る値のみ保存する処理。加えて、user作成時にmaster_idとteam_idを保存する。
-    params.require(:user).permit(:first_name, :last_name, :user_name{ master_ids:[], team_ids:[] })
+    params.require(:user).permit(:first_name, :last_name, :user_name, { master_ids:[], team_ids:[] })
   end
 
 end

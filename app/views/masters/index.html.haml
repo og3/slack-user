@@ -1,0 +1,12 @@
+.header
+  .header__logo
+  %ul.header__list.list
+    %li.list__item
+      = link_to "ログアウト", destroy_master_session_path, method: :delete, class: "list__item__text"
+    %li.list__item
+      = link_to "チーム作成", new_team_path, class: "list__item__text"
+.body
+= if master_signed_in?
+  %p ログイン中のマスターアカウント
+  = current_master.email
+  

@@ -1,0 +1,21 @@
+.team_header
+  .team_header__logo
+
+= form_for @user do |f|
+  .user_name.name
+    .user_name__body
+      %h1 What’s your name?
+      %p Your name will be displayed along with your messages in Slack.
+      .user_name__body__your_name
+        %label Your name
+        .user_name__body__your_name__f_name
+          = f.text_field :first_name, placeholder: "first name"
+        .user_name__body__your_name__l_name
+          = f.text_field :last_name, placeholder: "last name"
+      .user_name__body__user_name
+        %label Username
+        .user_name__body__user_name__input
+          = f.text_field :user_name, placeholder: "user name"
+        %p User names must be all lowercase, with no spaces. They can only contain letters, numbers, periods, hyphens, and underscores.
+      .user_name__body__submit
+        = f.submit "Create User", class: "user_name__body__submit__button"

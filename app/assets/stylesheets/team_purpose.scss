@@ -1,15 +1,5 @@
 .team {
   &__purpose {
-    &__header {
-      display: inline-block;
-      &__logo {
-        margin: 1rem;
-        width: 120px;
-        height: 37px;
-        background: url(https://a.slack-edge.com/66f9/img/slack_logo_240.png) no-repeat;
-        background-size: contain;
-      }
-    }
     &__form {
       width: 30rem;
       min-height: 90%;
@@ -73,9 +63,7 @@
           border-radius: .15rem;
         }
       }
-
       }
-
       &__btn {
         padding: .5rem 12%;
         margin: 0 auto;
@@ -103,7 +91,6 @@
           margin: 0;
         }
       }
-
     }
   }
 }

@@ -13,6 +13,6 @@
       = link_to "チーム作成", new_team_path, class: "list__item__text"
 .body
 = if master_signed_in?
-  %p ログイン中のユーザー
+  %p ログイン中のマスターアカウント
   = current_master.email
   

@@ -12,6 +12,7 @@ class Masters::SessionsController < Devise::SessionsController
     set_flash_message!(:notice, :signed_in)
     sign_in(resource_name, resource)
     yield resource if block_given?
+    # リダイレクト先をmaster indexに変更
     redirect_to masters_path
   end
 

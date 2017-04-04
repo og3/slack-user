@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
     # @teamにmasterインスタンスをもたせて、そこにログイン中のユーザー情報をいれる
     @team.masters << current_master
     if @team.save
-      redirect_to root_path
+      redirect_to new_team_user_path(@team.id)
     else
       flash.now[:alert] = "必要項目を入力してください"
       render :new
@@ -33,6 +33,6 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :purpose, :memo, { master_ids:[] })
+    params.require(:team).permit(:name, :purpose, :memo)
   end
 end

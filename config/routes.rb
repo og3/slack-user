@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   root 'masters#new'
   resources :teams
   resources :users
+  resources :masters
 end

@@ -28,13 +28,9 @@
       .master_email__headline__input
         = f.email_field :email, autofocus: true, placeholder: "email adress", class: "master_email__headline__email"
       %input{type: "button", value: "Create new team", class: "master_email__headline__button"}
-      %span.master_email__headline__footer
+      .master_email__headline__footer
         Your team already uses Slack? 
-        %a{class: "master_email__headline__footer__link"}
-          sign in
-        or
-        %a{class: "master_email__headline__footer__link"}
-          find your team.
+        = link_to "sign_in", new_master_session_path
 
   .master_password.password
     .master_password__body

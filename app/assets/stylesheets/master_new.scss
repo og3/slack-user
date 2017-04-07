@@ -110,6 +110,9 @@
   &__footer {
     display: block;
     padding-top: 10px;
+    & a {
+      text-decoration: none;
+    }
   }
   }
 }

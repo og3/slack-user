@@ -1,0 +1,78 @@
+.sign_in__main {
+    width: 1024px;
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    &__form {
+      width: 66.13%;
+      display: block;
+      background-color: #fff;
+      border-radius: .25rem;
+      box-shadow: 0 1px 0 rgba(0,0,0,.25);
+      padding: 2rem 2rem 1rem;
+      margin: 0 auto 2rem;
+      position: relative;
+      border: 1px solid #E8E8E8;
+      & h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        letter-spacing: -1px;
+        font-weight: 700;
+        text-align: center;
+        margin: 0 0 2rem;
+    }
+    &__input {
+      width: 66.13%;
+      display: block;
+      margin: 0 0 2%;
+      padding-right: 2%;
+      margin: 0 auto 2rem;
+      float: none!important;
+      & h2 {
+        font-size: 1rem;
+        line-height: 2.5rem;
+        letter-spacing: -1px;
+        text-align: center;
+        margin: 0 0 0.5rem;
+      }
+      &__users {
+        font-size: 1.25rem;
+        line-height: normal;
+        padding: .75rem;
+        border: 1px solid #C5C5C5;
+        border-radius: .25rem;
+        appearance: none;
+        outline: 0;
+        color: #555459;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 1rem;
+        box-shadow: none;
+        height: auto;
+      }
+      &__submit {
+        margin-bottom: 2rem!important;
+        text-align: center!important;
+        background: #2ab27b;
+        color: #fff;
+        line-height: 1.2rem;
+        font-weight: 900;
+        user-select: none;
+        text-decoration: none;
+        cursor: pointer;
+        text-shadow: 0 1px 1px rgba(0,0,0,.1);
+        border: none;
+        border-radius: .25rem;
+        box-shadow: none;
+        position: relative;
+        display: inline-block;
+        vertical-align: bottom;
+        text-align: center;
+        white-space: nowrap;
+        width: 70%;
+        height: 50px;
+        margin-left: 70px;
+        margin-top: 20px;
+      }
+    }
+  }
+}

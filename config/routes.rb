@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :users
   end
   resources :masters
+  resources :messages, only: :index
 end

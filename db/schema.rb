@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408055804) do
+ActiveRecord::Schema.define(version: 20170408063007) do
+
+  create_table "channel_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "channel_id", null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_channel_users_on_channel_id", using: :btree
+    t.index ["user_id"], name: "index_channel_users_on_user_id", using: :btree
+  end
 
   create_table "channels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -68,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170408055804) do
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
+  add_foreign_key "channel_users", "channels"
+  add_foreign_key "channel_users", "users"
   add_foreign_key "master_teams", "masters"
   add_foreign_key "master_teams", "teams"
   add_foreign_key "users", "masters"

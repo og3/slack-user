@@ -1,12 +1,21 @@
-.header
-  .header__logo
-  %ul.header__list.list
-    %li.list__item
-      = link_to "ログアウト", destroy_master_session_path, method: :delete, class: "list__item__text"
-    %li.list__item
-      = link_to "チーム作成", new_team_path, class: "list__item__text"
-.body
-= if master_signed_in?
-  %p ログイン中のマスターアカウント
-  = current_master.email
-  
+.master_menu__header
+  .team_header
+    .team_header__logo
+  .master_menu__header__right
+    %ul.master_menu__header__right__list
+      %li.master_menu__header__right__list__item
+        = link_to "ログアウト", destroy_master_session_path, method: :delete
+      %li.master_menu__header__right__list__item
+        = link_to "チーム作成", new_team_path
+
+.master_menu__main
+  .master_menu__main__container
+    %p ログイン中のマスターアカウント
+    = current_master.email
+    .master_menu__main__container__inner
+      %ul.master_menu__main__container__inner__list
+        所属team一覧
+        - current_master.teams.each do |team|
+          %li.master_menu__main__container__inner__list__item
+            %p.master_menu__main__container__inner__list__name
+              = team.name

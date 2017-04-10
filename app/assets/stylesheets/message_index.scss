@@ -56,25 +56,6 @@
         z-index: 1;
       }
     }
-    &__channel_container {
-      margin-top: .5rem;
-      margin: 1rem 0 2rem;
-      width: inherit;
-      position: relative;
-      &__channels {
-        text-align: left;
-        font-size: .8rem;
-        line-height: 1.25rem;
-        margin: 0 1rem .1rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        position: relative;
-        display: inline;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-    }
     &__direct_container {
       margin-top: .5rem;
       margin: 1rem 0 2rem;

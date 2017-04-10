@@ -1,0 +1,5 @@
+.message_sidebar__user_team_info
+  .message_sidebar__user_team_info__team_info
+    = team.name
+  .message_sidebar__user_team_info__user_info
+    = link_to current_master.email, "/", class: "message_links"

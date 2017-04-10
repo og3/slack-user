@@ -68,15 +68,11 @@
         margin: 0 1rem .1rem;
         text-transform: uppercase;
         font-weight: 700;
-        width: 165px;
         position: relative;
-        display: block;
+        display: inline;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-      }
-      &__icon {
-        // fontawsomeで探す
       }
     }
     &__direct_container {
@@ -93,7 +89,7 @@
         font-weight: 700;
         width: 165px;
         position: relative;
-        display: block;
+        display: inline;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -160,7 +156,18 @@
   }
 }
 
-
+.message_new {
+  text-align: left;
+  font-size: .8rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  display: inline;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 // font関連
 .message_links {

@@ -1,0 +1,22 @@
+.message_sidebar
+  .message_sidebar__user_team_info
+    .message_sidebar__user_team_info__team_info
+      = @team.name
+    .message_sidebar__user_team_info__user_info
+      = link_to current_master.email, "/", class: "message_links"
+  .message_sidebar__channel_container
+    .message_sidebar__channel_container__channels
+      = link_to "CHANNELS", "/", class: "message_links"
+    .message_new
+      = link_to "new", new_team_channel_path(@team.id),class: "message_links"
+  .message_sidebar__direct_container
+    .message_sidebar__direct_container__directs
+      = link_to "DIRECT_MESSAGES", "/", class: "message_links"
+    .message_new
+      = link_to "new", new_team_channel_path(@team.id),class: "message_links"
+.message_main
+  Please serect or create Chsnnels or Direct messages.
+
+
+
+

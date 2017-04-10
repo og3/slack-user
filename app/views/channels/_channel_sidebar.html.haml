@@ -1,0 +1,10 @@
+.message_sidebar__channel_container
+  .message_sidebar__channel_container__channels
+    = link_to "CHANNELS", "/", class: "message_links"
+    = link_to "(#{@team.channels.count})", "/", class: "message_links"
+  .message_new
+    = link_to "new", new_team_channel_path(@team.id),class: "message_links"
+  %ul.message_channel__list
+    - @channels.each do |channel|
+      %li.message_channel__list__item
+        = link_to "# #{channel.name}", team_channel_messages_path(params[:team_id], channel.id), class: "message_links"

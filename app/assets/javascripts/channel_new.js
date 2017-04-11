@@ -3,17 +3,21 @@ $(function() {
   $("#create-channel_user").on("keyup", function() {
    // 変数inputに、#create-channel_userに入力された値を取得し、代入する
     var input = $("#create-channel_user").val();
-    // 検索結果が表示される#user-search-resultの部分を空にする
+    // urlの部分を区切って配列にする。
+    var team_url = window.location.href.split("/");
+    // 配列の４番目にteam_idが入っているのでそれを取得する。
+    var team_id = team_url[4]
+    // 検索結果が表示される#user-search-resultの部分を空にする。
     $("#user-search-result").empty();
     // 変数inputに値が入力されて、かつ文字数が0でない時に発動 値をJSON形式でGETのリクエストを飛ばす
     if (input.length !== 0) {
       // すべてのユーザー名を取得するためにusers_controllerのindexにリクエストを飛ばす
       $.ajax({
         type: 'GET',
-        // usersコントローラにGETのリクエストを飛ばす。送り先はアクションのURLを指定する。
-        url: '/teams/:team_id/users',
+        // usersコントローラにGETのリクエストを飛ばす。送り先はアクションのURLを指定する。:team_idの部分は上で設定したteam_idの番号を入力する。
+        url: '/teams/' + team_id + '/users',
         // data: {カラム名: 入力された値（今回は変数）} 入力された値に対応した値をカラムから取ってくる
-        data: { user_name: input },
+        data: { user_name: input},
         dataType: 'json'
       })
       // 非同期通信が成功した場合の処理

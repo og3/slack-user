@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     end
   end
   resources :masters
+  get '/teams/:team_id/users' => "users#index"
   
 end

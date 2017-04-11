@@ -1,0 +1,29 @@
+.create-channel-form
+  %h1 Create a channel
+  = form_for @channel, url: team_channel_path do |f|
+    .create-channel-form__field.clearfix
+      .create-channel-form__field--left
+    .create-channel-form__field.clearfix
+      .create-channel-form__field--left
+        = f.label :name,'channel name', class: 'create-channel-form__label'
+      .create-channel-form__field--right
+        = f.text_field :name, class: 'create-channel-form__input', id: 'chat_group_name', placeholder: 'Channel name'
+    .create-channel-form__field.clearfix
+      .create-channel-form__field--left
+        = f.label :user_ids, 'Invite user', class: 'create-channel-form__label'
+      .create-channel-form__field--right
+        .create-channel-form__search.clearfix
+          .user-search-field.create-channel-form__input
+            .create-channel-form__search.clearfix
+              %input#create-channel_user.create-channel-form__input{ type: "text", placeholder: 'Search by name' }
+            #user-search-result
+    .create-channel-form__field.clearfix
+      .create-channel-form__field--left
+        = f.label 'channel member', class: 'create-channel-form__label'
+      .create-channel-form__field--right
+        #create-channel-users
+          #create-channel-user-22.create-channel-user.clearfix
+    .create-channel-form__field.clearfix
+      .create-channel-form__field--left
+      .create-channel-form__field--right
+        = f.submit 'Create Channel', class: 'create-channel-form__action-btn'

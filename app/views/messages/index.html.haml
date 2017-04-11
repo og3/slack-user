@@ -14,9 +14,12 @@
       %p ##{@channel.name}
     .message_main__header__members
       .message_main__header__members__member_list
-        -# member-listの表示は近日公開
+        -# 仮の表示。改良版ではプルダウンから選択できるようにする。
+        member-list:
+        - @channel.users.each do |user|
+          = user.user_name
       .message_main__header__members__member_edit
-        EDIT
+        = link_to "EDIT", edit_team_channel_path(params[:team_id], @channel.id), class: "message_links"
 
   .message_main__body
   

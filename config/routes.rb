@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'masters#show'
   resources :teams do
     resources :users
-    resources :channels, only: [:new, :create] do
+    resources :channels, only: [:new, :create, :edit, :update] do
       resources :messages
     end
   end

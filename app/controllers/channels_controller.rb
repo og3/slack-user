@@ -1,5 +1,7 @@
 class ChannelsController < ApplicationController
 
+  before_action :set_channel, only:[:edit, :update]
+
   def new
     @channel = Channel.new
   end
@@ -20,10 +22,29 @@ class ChannelsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+     @user = User.where(master_id: current_master.id,team_id: params[:team_id])
+     @channel.users << @user
+    if @channel.update(channel_params)
+      redirect_to team_channel_messages_path(params[:team_id], @channel.id), notice: 'Success to edit channel!!'
+    else
+      flash[:alert] = 'Fail to update channel'
+      render :edit
+    end
+  end
+
   private
   def channel_params
     # channelを作成するときにteam_idが必要なのでmergeする。
     params.require(:channel).permit(:name, { user_ids:[] }).merge(team_id: params[:team_id])
+  end
+
+  def set_channel
+    # 表示するchannelのidを持ってくる。
+     @channel = Channel.find(params[:id])
   end
 
 end

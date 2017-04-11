@@ -8,3 +8,4 @@
     - @channels.each do |channel|
       %li.message_channel__list__item
         = link_to "# #{channel.name}", team_channel_messages_path(params[:team_id], channel.id), class: "message_links"
+        

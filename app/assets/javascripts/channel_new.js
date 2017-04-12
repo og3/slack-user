@@ -77,7 +77,7 @@ $(function() {
       console.log(id);
       var appended_user_html =
        '<div class="create-channel-user  clearfix">'                                           +
-        '<input name="group[user_ids][]" type="hidden"' + 'value=' + id + '>'   +
+        '<input name="channel[user_ids][]" type="hidden"' + 'value=' + id + '>'   +
         '<p class="create-channel-user__name">'                                     +
           name                                                                  +
         '</p>'                                                                  +

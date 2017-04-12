@@ -1,6 +1,6 @@
 class ChannelsController < ApplicationController
 
-  before_action :set_channel, only:[:edit, :update]
+  before_action :set_channel, only:[:edit, :update, :destroy]
 
   def new
     @channel = Channel.new
@@ -34,6 +34,14 @@ class ChannelsController < ApplicationController
       flash[:alert] = 'Fail to update channel'
       render :edit
     end
+  end
+
+  def destroy
+    # channelを削除する。
+    @channel.destroy
+    # teamのshowに飛ばすために現在のteam_idを取得。
+    @team = Team.find(params[:team_id])
+    redirect_to team_path(@team.id), notice: 'Success to delete channel!!'
   end
 
   private

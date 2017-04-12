@@ -20,6 +20,8 @@
           = user.user_name
       .message_main__header__members__member_edit
         = link_to "EDIT", edit_team_channel_path(params[:team_id], @channel.id), class: "message_links"
+      .message_main__header__members__member_delete
+        = link_to "DELETE", team_channel_path(params[:team_id], @channel.id), method: :delete, class: "message_links"
 
   .message_main__body
   

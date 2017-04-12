@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20170408063007) do
 
   create_table "channel_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "channel_id"
-    t.integer  "user_id",    null: false
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["channel_id"], name: "index_channel_users_on_channel_id", using: :btree
@@ -78,10 +78,4 @@ ActiveRecord::Schema.define(version: 20170408063007) do
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
-  add_foreign_key "channel_users", "channels"
-  add_foreign_key "channel_users", "users"
-  add_foreign_key "master_teams", "masters"
-  add_foreign_key "master_teams", "teams"
-  add_foreign_key "users", "masters"
-  add_foreign_key "users", "teams"
 end

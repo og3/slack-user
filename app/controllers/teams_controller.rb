@@ -20,6 +20,10 @@ class TeamsController < ApplicationController
   def show
     # 現在表示中のteam情報を取得
     @team = Team.find(params[:id])
+    # 現在のteam内にいるuser情報を取得する。
+    @user = User.find_by(master_id: current_master.id,team_id: params[:id])
+    # userの所属しているchannelを全て取得する。
+    @channels = @user.channels
   end
   # def join
   #   # ログイン中のユーザーのinvited_by_idを取得する

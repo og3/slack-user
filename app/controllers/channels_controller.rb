@@ -42,6 +42,13 @@ class ChannelsController < ApplicationController
     redirect_to team_path(@team.id), notice: 'Success to delete channel!!'
   end
 
+  def index
+    # 現在のteam_idを取得する。
+    @team = Team.find(params[:team_id])
+    # @teamが持っている全てのchannelを取得する。
+    @channels = @team.channels
+  end
+
   private
   def channel_params
     # channelを作成するときにteam_idが必要なのでmergeする。

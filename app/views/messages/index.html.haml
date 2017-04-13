@@ -2,8 +2,8 @@
   = render 'teams/team_sidebar', team: @team
   .message_sidebar__channel_container
     .message_sidebar__channel_container__channels
-      = link_to "CHANNELS", "/", class: "message_links"
-      = link_to "(#{@team.channels.count})", "/", class: "message_links"
+      = link_to "CHANNELS(#{@team.channels.count})", "/", class: "message_links"
+      -# = link_to "(#{@team.channels.count})", "/", class: "message_links"
     .message_new
       = link_to "new", new_team_channel_path(@team.id),class: "message_links"
     %ul.message_channel__list
@@ -27,10 +27,10 @@
         member-list:
         - @channel.users.each do |user|
           = user.user_name
-      .message_main__header__members__member_edit
-        = link_to "EDIT", edit_team_channel_path(params[:team_id], @channel.id), class: "message_links"
-      .message_main__header__members__member_delete
-        = link_to "DELETE", team_channel_path(params[:team_id], @channel.id), method: :delete, class: "message_links"
+      .message_main__header__members__member_edit_delete
+        = link_to "EDIT", edit_team_channel_path(params[:team_id], @channel.id), class: "edit_delete_links"
+      .message_main__header__members__member_edit_delete
+        = link_to "DELETE", team_channel_path(params[:team_id], @channel.id), method: :delete, class: "edit_delete_links "
 
   .message_main__body
   

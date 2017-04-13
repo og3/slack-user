@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-
+  # 常にmasterのログインを要求する
+  before_action :authenticate_master!
+  
   def index
     # users_tableから曖昧検索をして変数usersに入れる やり方は、where("カラム名 like '%検索テキスト%'")。params[:team_id]はコントローラのアドレスの中のteam_idから取得する。
     @users = User.where("team_id = '#{params[:team_id]}'").where("user_name like '%#{params[:user_name]}%'")

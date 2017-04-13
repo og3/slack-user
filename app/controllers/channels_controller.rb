@@ -1,5 +1,6 @@
 class ChannelsController < ApplicationController
-
+  # 常にmasterのログインを要求する
+  before_action :authenticate_master!
   before_action :set_channel, only:[:edit, :update, :destroy]
 
   def new

@@ -104,7 +104,7 @@
         padding: 10px 40px 0px 0px;
         font-weight: 900;
       }
-      &__member_edit {
+      &__member_edit_delete {
         float: right;
         font-size: 1.5rem;
         font-weight: 900;
@@ -159,4 +159,10 @@
 .message_links:hover {
   cursor: pointer;
   color: white;
+}
+
+.edit_delete_links {
+  color: #AB9BA9;
+  text-decoration: none;
+  cursor: pointer;
 }

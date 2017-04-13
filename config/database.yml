@@ -52,3 +52,4 @@ production:
   database: slack-user_production
   username: slack-user
   password: <%= ENV['SLACK-USER_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

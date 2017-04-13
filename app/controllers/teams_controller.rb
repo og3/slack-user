@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  # 常にmasterのログインを要求する
   before_action :authenticate_master!
 
   def new

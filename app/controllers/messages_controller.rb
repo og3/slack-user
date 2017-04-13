@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  # 常にmasterのログインを要求する
+  before_action :authenticate_master!
   def index
     # 現在表示しているchannelの情報を取得する。viewではchannel名を表示させるために使う。
     @channel = Channel.find(params[:channel_id])

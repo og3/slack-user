@@ -56,29 +56,6 @@
         z-index: 1;
       }
     }
-    &__channel_container {
-      margin-top: .5rem;
-      margin: 1rem 0 2rem;
-      width: inherit;
-      position: relative;
-      &__channels {
-        text-align: left;
-        font-size: .8rem;
-        line-height: 1.25rem;
-        margin: 0 1rem .1rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        width: 165px;
-        position: relative;
-        display: block;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-      &__icon {
-        // fontawsomeで探す
-      }
-    }
     &__direct_container {
       margin-top: .5rem;
       margin: 1rem 0 2rem;
@@ -93,7 +70,7 @@
         font-weight: 700;
         width: 165px;
         position: relative;
-        display: block;
+        display: inline;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -127,7 +104,7 @@
         padding: 10px 40px 0px 0px;
         font-weight: 900;
       }
-      &__member_edit {
+      &__member_edit_delete {
         float: right;
         font-size: 1.5rem;
         font-weight: 900;
@@ -160,7 +137,18 @@
   }
 }
 
-
+.message_new {
+  text-align: left;
+  font-size: .8rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  display: inline;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 // font関連
 .message_links {
@@ -171,4 +159,10 @@
 .message_links:hover {
   cursor: pointer;
   color: white;
+}
+
+.edit_delete_links {
+  color: #AB9BA9;
+  text-decoration: none;
+  cursor: pointer;
 }

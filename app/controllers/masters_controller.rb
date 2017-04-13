@@ -1,7 +1,7 @@
 class MastersController < ApplicationController
 
 # masterメニュー画面
-  def index
+  def show
   end
 
 end

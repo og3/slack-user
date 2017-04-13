@@ -1,27 +1,35 @@
 .message_sidebar
-  .message_sidebar__user_team_info
-    .message_sidebar__user_team_info__team_info
-      team_name
-    .message_sidebar__user_team_info__user_info
-      = link_to current_master.email, "/", class: "message_links"
+  = render 'teams/team_sidebar', team: @team
   .message_sidebar__channel_container
     .message_sidebar__channel_container__channels
-      = link_to "CHANNELS", "/", class: "message_links"
-    .message_puls_icon
+      = link_to "CHANNELS(#{@team.channels.count})", team_channels_path, class: "message_links"
+    .message_new
+      = link_to "new", new_team_channel_path(@team.id),class: "message_links"
+    %ul.message_channel__list
+      - @channels.each do |channel|
+        %li.message_channel__list__item
+          = link_to "# #{channel.name}", team_channel_messages_path(params[:team_id], channel.id), class: "message_links"
   .message_sidebar__direct_container
     .message_sidebar__direct_container__directs
       = link_to "DIRECT_MESSAGES", "/", class: "message_links"
+    .message_new
+      = link_to "new", new_team_channel_path(@team.id),class: "message_links"
     .message_puls_icon
 
 .message_main
   .message_main__header
     .message_main__header__title
-      ＃Channel-name
+      %p ##{@channel.name}
     .message_main__header__members
       .message_main__header__members__member_list
-        member-list
-      .message_main__header__members__member_edit
-        EDIT
+        -# 仮の表示。改良版ではプルダウンから選択できるようにする。
+        member-list:
+        - @channel.users.each do |user|
+          = user.user_name
+      .message_main__header__members__member_edit_delete
+        = link_to "EDIT", edit_team_channel_path(params[:team_id], @channel.id), class: "edit_delete_links"
+      .message_main__header__members__member_edit_delete
+        = link_to "DELETE", team_channel_path(params[:team_id], @channel.id), method: :delete, class: "edit_delete_links "
 
   .message_main__body
   

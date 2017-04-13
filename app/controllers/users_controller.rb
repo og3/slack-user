@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
 
+  def index
+    # users_tableから曖昧検索をして変数usersに入れる やり方は、where("カラム名 like '%検索テキスト%'")。params[:team_id]はコントローラのアドレスの中のteam_idから取得する。
+    @users = User.where("team_id = '#{params[:team_id]}'").where("user_name like '%#{params[:user_name]}%'")
+    # json形式で値を返す
+    render json: @users
+  end
+
   def new
     # userインスタンスを作成
     @user = User.new
@@ -9,8 +16,7 @@ class UsersController < ApplicationController
     # userインスタンスに入力された値を代入
     @user = User.new(user_params)
     if @user.save
-      # message機能追加後にリダイレクト先を変更する
-      redirect_to root_path
+      redirect_to team_path(@user.team_id)
     else
       flash.now[:alert] = "すべての項目を入力してください"
       render :new
@@ -22,5 +28,6 @@ class UsersController < ApplicationController
   # 入力された値のうち、指定したカラムに入る値のみ保存する処理。加えて、user作成時にmaster_idとteam_idを保存する。
     params.require(:user).permit(:first_name, :last_name, :user_name).merge(master_id: current_master.id, team_id: params[:team_id])
   end
+
 
 end

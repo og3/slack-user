@@ -6,11 +6,14 @@ Rails.application.routes.draw do
     passwords: 'masters/passwords',
     invitations: 'masters/invitations'
     }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'masters#show'
   resources :teams do
     resources :users
-    resources :messages
+    resources :channels, only: [:new, :create, :edit, :update, :destroy, :index] do
+      resources :messages
+    end
   end
   resources :masters
+  get '/teams/:team_id/users' => "users#index"
   
 end

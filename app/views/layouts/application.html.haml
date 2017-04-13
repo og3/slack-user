@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title slack
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    - flash.each do |key, value|
+      - key = "info" if key == "notice"
+      - key = "danger"  if key == "alert"
+      = content_tag :div, value, class: "alert-#{key}"
+    = yield

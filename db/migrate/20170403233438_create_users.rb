@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :user_name, null: false
-      t.references :team, foreign_key: true
-      t.references :master, foreign_key: true
+      t.references :team
+      t.references :master
       t.timestamps
     end
   end

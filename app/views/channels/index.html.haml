@@ -1,0 +1,6 @@
+.channel-index
+  %h1 team内のchannel一覧
+  %ul.channel-index__list
+  - @channels.each do |channel|
+    %li.channel-index__list__item
+      = channel.name

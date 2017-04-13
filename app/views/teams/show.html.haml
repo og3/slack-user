@@ -1,0 +1,23 @@
+.message_sidebar
+  = render 'teams/team_sidebar', team: @team
+  .message_sidebar__channel_container
+    .message_sidebar__channel_container__channels
+      = link_to "CHANNELS(#{@team.channels.count})", team_channels_path(@team.id), class: "message_links"
+    .message_new
+      = link_to "new", new_team_channel_path(@team.id),class: "message_links"
+    %ul.message_channel__list
+      - @channels.each do |channel|
+        %li.message_channel__list__item
+          = link_to "# #{channel.name}", team_channel_messages_path(params[:id], channel.id), class: "message_links"
+
+  .message_sidebar__direct_container
+    .message_sidebar__direct_container__directs
+      = link_to "DIRECT_MESSAGES", "/", class: "message_links"
+    .message_new
+      = link_to "new", new_team_channel_path(@team.id),class: "message_links"
+.message_main
+  Please serect or create Chsnnels or Direct messages.
+
+
+
+

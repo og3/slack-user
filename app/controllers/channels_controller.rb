@@ -26,8 +26,6 @@ class ChannelsController < ApplicationController
   end
 
   def update
-     @user = User.where(master_id: current_master.id,team_id: params[:team_id])
-     @channel.users << @user
     if @channel.update(channel_params)
       redirect_to team_channel_messages_path(params[:team_id], @channel.id), notice: 'Success to edit channel!!'
     else

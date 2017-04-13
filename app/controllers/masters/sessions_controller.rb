@@ -13,13 +13,17 @@ class Masters::SessionsController < Devise::SessionsController
     sign_in(resource_name, resource)
     yield resource if block_given?
     # リダイレクト先をmaster showに変更
-    redirect_to master_path
+    redirect_to root_path
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    set_flash_message! :notice, :signed_out if signed_out
+    yield if block_given?
+    # ログアウト後のリダイレクト先をサインインに変更
+    redirect_to new_master_session_path
+  end
 
   # protected
 

@@ -17,6 +17,10 @@ class UsersController < ApplicationController
   def create
     # userインスタンスに入力された値を代入
     @user = User.new(user_params)
+    @team = Team.find(params[:team_id])
+    # @teamにmasterインスタンスをもたせて、そこにログイン中のユーザー情報をいれる。
+    @team.masters << current_master
+    @team.save
     if @user.save
       redirect_to team_path(@user.team_id)
     else

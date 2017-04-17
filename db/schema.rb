@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408063007) do
+ActiveRecord::Schema.define(version: 20170414091753) do
 
   create_table "channel_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "channel_id"
@@ -56,6 +56,22 @@ ActiveRecord::Schema.define(version: 20170408063007) do
     t.string   "unconfirmed_email"
     t.index ["email"], name: "index_masters_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_masters_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "text",       limit: 65535
+    t.string   "image"
+    t.string   "user_name"
+    t.integer  "master_id"
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.integer  "channel_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["channel_id"], name: "index_messages_on_channel_id", using: :btree
+    t.index ["master_id"], name: "index_messages_on_master_id", using: :btree
+    t.index ["team_id"], name: "index_messages_on_team_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

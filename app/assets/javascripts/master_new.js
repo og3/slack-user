@@ -13,7 +13,7 @@ $(function() {
   });
 
 // enterでsubmitが押されないようenterを封印
-  $("input").on("keydown", function(e) {
+  $("master_password__body__footer__container__button").on("keydown", function(e) {
       if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
           return false;
       } else {

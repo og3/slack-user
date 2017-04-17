@@ -12,7 +12,7 @@ $(function() {
   });
 
 // enterでsubmitが押されないようenterを封印
-  $("input").on("keydown", function(e) {
+  $("team_purpose_button").on("keydown", function(e) {
       if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
           return false;
       } else {

@@ -14,8 +14,15 @@
     = current_master.email
     .master_menu__main__container__inner
       %ul.master_menu__main__container__inner__list
-        所属team一覧
+        %h2 所属team一覧
         - current_master.teams.each do |team|
           %li.master_menu__main__container__inner__list__item
             %p.master_menu__main__container__inner__list__name
               = link_to team.name, team_path(team.id)
+
+      %ul.master_menu__main__container__inner__list
+        %h2 全team一覧
+        - @teams.each do |team|
+          %li.master_menu__main__container__inner__list__item
+            %p.master_menu__main__container__inner__list__name
+              = link_to team.name, new_team_user_path(team.id)

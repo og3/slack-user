@@ -35,7 +35,9 @@
     %ul.message_main__body__list
       = render partial: 'messages/message', collection: @channel_messages
   .message_main__footer
-    %textarea{placeholder: "type message", class: "message_main__footer__input_message"}
+    = form_for @message, url: team_channel_messages_path do |f|
+      = f.text_field :text, placeholder: "type message", class: "message_main__footer__input_message"
+      = f.submit "+", class: "send-button"
 
 
 

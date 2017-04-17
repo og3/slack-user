@@ -1,0 +1,10 @@
+%li.message_main__body__list__item.clearfix
+  %p.message_main__body__list__item__name
+    = message.user.name
+  %p.message_main__body__list__item__time_stamp 
+    = message.created_at
+  %p.message_main__body__list__item__message 
+    = message.message
+    / massage.imageがあった場合 image_tagでimage映す
+  %p.message_main__bodyt__list__item__image
+    = image_tag message.image if message.image?

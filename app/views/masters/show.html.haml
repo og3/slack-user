@@ -18,4 +18,4 @@
         - current_master.teams.each do |team|
           %li.master_menu__main__container__inner__list__item
             %p.master_menu__main__container__inner__list__name
-              = team.name
+              = link_to team.name, team_path(team.id)

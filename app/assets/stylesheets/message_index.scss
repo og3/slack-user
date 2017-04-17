@@ -112,19 +112,51 @@
       }
     }
   }
+
   &__body {
     float: left;
     // 25 + 1 + 2の分
     height: calc(80% - 28px);
     width: 100%;
+    overflow: auto;
+    &__list {
+      &__item {
+        margin: -18px 0 0;
+        padding: 1.75rem 20px 20px 1.25rem;
+        &__name {
+          margin-right: .25rem;
+          display: inline;
+          font-weight: 900;
+          color: #2C2D30!important;
+          line-height: 18px;
+        }
+        &__time_stamp {
+          margin-right: .25rem;
+          opacity: 1;
+          display: inline;
+          color: #9e9ea6;
+          font-size: 12px;
+          white-space: nowrap;
+        }
+        &__message {
+          margin-top: 5px;
+          display: block;
+          cursor: text;
+          color: #2C2D30;
+          font-size: 20px;
+          line-height: 22px;
+        }
+      }
+    }
   }
+
   &__footer {
     height: 10%;
     width: 100%;
     float: left;
     &__input_message {
       width: 90%;
-      height: 90%;
+      height: 40px;
       margin-left: 30px;
       border-color: #bbbdbf;
       outline: 0;
@@ -133,6 +165,9 @@
       border-radius: .375rem;
       font-size: .9375rem;
       line-height: 1.2rem;
+      position: relative;
+      margin: 0 1.25rem;
+      padding-left: 15px;
     }
   }
 }
@@ -165,4 +200,8 @@
   color: #AB9BA9;
   text-decoration: none;
   cursor: pointer;
+}
+
+.send-button {
+  display: none;
 }

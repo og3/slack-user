@@ -10,3 +10,5 @@
         = f.email_field :email, autofocus: true, placeholder: "email", class: "sign_in__main__form__input__users"
         = f.password_field :password, placeholder: "password", class: "sign_in__main__form__input__users"
         = f.submit "Log in", class: "sign_in__main__form__input__submit"
+      %span if you have no account, click here to 
+      = link_to "sign_up", new_master_registration_path

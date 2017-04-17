@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
             message: message.text,
             name: message.user_name,
             image_url: message.image,
-            datetime: message.created_at.strftime('%Y/%m/%d %H:%M:%S')
+            datetime: message.created_at.strftime(' %I:%M %p')
           }
         } #入力されたデータを変数に入れてJSの部分に返す
       end

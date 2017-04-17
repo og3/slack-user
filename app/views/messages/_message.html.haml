@@ -2,7 +2,7 @@
   %p.message_main__body__list__item__name
     = message.user_name
   %p.message_main__body__list__item__time_stamp 
-    = message.created_at
+    = message.created_at.strftime('%I:%M %p')
   %p.message_main__body__list__item__message 
     = message.text
     / massage.imageがあった場合 image_tagでimage映す

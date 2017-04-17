@@ -8,8 +8,6 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    # @teamにmasterインスタンスをもたせて、そこにログイン中のユーザー情報をいれる
-    @team.masters << current_master
     if @team.save
       redirect_to new_team_user_path(@team.id)
     else

@@ -7,13 +7,13 @@ Rails.application.routes.draw do
     invitations: 'masters/invitations'
     }
   root 'masters#show'
-  resources :teams do
-    resources :users
+  resources :teams, only: [:new, :create, :show] do
+    resources :users, only: [:index, :new, :create]
     resources :channels, only: [:new, :create, :edit, :update, :destroy, :index] do
-      resources :messages
+      resources :messages, only: [:index, :create]
     end
   end
-  resources :masters
+  resources :masters, only: [:show]
   get '/teams/:team_id/users' => "users#index"
   
 end

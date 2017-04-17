@@ -3,3 +3,4 @@
     = "team_name:#{team.name}"
   .message_sidebar__user_team_info__user_info
     = link_to current_master.email, "/", class: "message_links"
+    = link_to "log-out", master_path(current_master.id), class: "message_links"

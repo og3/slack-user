@@ -32,9 +32,10 @@
         = link_to "DELETE", team_channel_path(params[:team_id], @channel.id), method: :delete, class: "edit_delete_links "
 
   .message_main__body
-  
+    %ul.message_main__body__list
+      = render partial: 'messages/message', collection: @channel_messages
   .message_main__footer
-    %textarea{placeholder: "memo", class: "message_main__footer__input_message"}
+    %textarea{placeholder: "type message", class: "message_main__footer__input_message"}
 
 
 

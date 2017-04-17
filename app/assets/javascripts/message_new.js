@@ -8,7 +8,6 @@ $(function() {
       type: 'GET',
       dataType: 'json',
     })
-      autoscroll();
   }
 
 // 自動更新呼び出し機能
@@ -47,10 +46,15 @@ $(function() {
 
 // メッセージ送信機能。sendボタンがclickされた時に以下のイベントが行われるようにする。（メッセージ送信後にsendボタンにdisabledがかからないようにするため）
   $('.send-button').click('submit', function(e) {
+    var input_message = $('.message_main__footer__input_message').val();
 //フォームが送信された時に、デフォルトだとフォームを送信するための通信がされてしまうので、preventDefault()を使用してデフォルトのイベントを止める
-    e.preventDefault(); 
-    sendmessage();
-
+    if (input_message == 0) {
+      // フォームが空でenterが押されても投稿されないように、falseを返す。
+      return false;
+    } else {
+      e.preventDefault(); 
+      sendmessage();
+    }
   });
 
 // 画像送信機能。file_fieldがchangeしたら発動。非同期通信の処理を呼び出す。
@@ -64,7 +68,7 @@ $(function() {
   function sendmessage(){
     // urlの部分を区切って配列にする。
     var url = window.location.href.split("/");
-    // 配列の４番目にteam_idが入っているのでそれを取得する。
+    // 本番環境ではここが変わるので注意！！
     var team_id = url[4]
     var channel_id = url[6]
     // $('#new_message')はform_forで自動生成されたidで、すべての入力欄の親要素

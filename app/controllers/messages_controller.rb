@@ -15,6 +15,18 @@ class MessagesController < ApplicationController
     @channel_messages = @channel.messages
     # 入力されたmessageを受け取るため、インスタンスを作成する。
     @message = Message.new
+    respond_to do |format|
+      format.html { render :index}
+      format.json {
+        # render json: {
+        #   message: @message.text,
+        #   name: @message.user_name,
+        #   image_url: @message.image,
+        #   datetime: @message.created_at.strftime(' %I:%M %p')
+        # }
+        render json: @channel_messages.map(&:for_js)
+        } 
+      end
   end
 
   def create #ここでの変数はviewでは使うことがないので、ローカル変数にする

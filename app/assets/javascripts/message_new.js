@@ -1,21 +1,34 @@
 $(function() {
 
   var body = $(".message_main__body")
+  // urlの部分を区切って配列にする。
+  var url = window.location.href.split("/");
+  // urlから必要なidを取得
+  var team_id = url[4]
+  var channel_id = url[6]
 
-// 自動更新機能
-  function update() {
-    $.ajax(window.location.href, {
+// メッセージを自動更新
+  function autoUpdate() {
+    $.ajax( {
       type: 'GET',
       dataType: 'json',
     })
-  }
+    .done(function(data) {
+      body.empty();
+      for(var i = 0; i < data.length; i++) {
+        body.append(buildHTML(data[i]));
+      }
+      autoscroll();
+    });
+  };
 
-// 自動更新呼び出し機能
-  $(function() {
-    update();
-    //関数update()を5000ミリ秒間隔で呼び出す
-    setInterval(update, 5000);
-  });
+  // 自動更新呼び出し機能
+  // $(function() {
+  //   autoUpdate();
+  //   //関数update()を5000ミリ秒間隔で呼び出す
+  //   setInterval(autoUpdate, 5000);
+    
+  // });
 
   // htmlを作成する機能
   function buildHTML(adddata) {
@@ -66,11 +79,6 @@ $(function() {
 
 // 非同期通信の処理
   function sendmessage(){
-    // urlの部分を区切って配列にする。
-    var url = window.location.href.split("/");
-    // 本番環境ではここが変わるので注意！！
-    var team_id = url[4]
-    var channel_id = url[6]
     // $('#new_message')はform_forで自動生成されたidで、すべての入力欄の親要素
     var form = $('#new_message').get(0);
     var formData = new FormData(form);

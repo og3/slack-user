@@ -1,12 +1,13 @@
 $(function() {
+
 // 1, #create-channel_userにワードが入力された時の処理
   $("#create-channel_user").on("keyup", function() {
    // 変数inputに、#create-channel_userに入力された値を取得し、代入する
     var input = $("#create-channel_user").val();
     // urlの部分を区切って配列にする。
-    var team_url = window.location.href.split("/");
+  　var url = window.location.href.split("/");
     // 配列の４番目にteam_idが入っているのでそれを取得する。
-    var team_id = team_url[4]
+    var team_id = url[4]
     // 検索結果が表示される#user-search-resultの部分を空にする。
     $("#user-search-result").empty();
     // 変数inputに値が入力されて、かつ文字数が0でない時に発動 値をJSON形式でGETのリクエストを飛ばす
@@ -74,7 +75,6 @@ $(function() {
 // 5, 4から送られたユーザーをグループに追加する処理
     function add_user_to_group(id, name){
       // 追加されたユーザーをグループメンバー一覧に表示するためのhtmlを作成
-      console.log(id);
       var appended_user_html =
        '<div class="create-channel-user  clearfix">'                                           +
         '<input name="channel[user_ids][]" type="hidden"' + 'value=' + id + '>'   +
@@ -86,13 +86,12 @@ $(function() {
       '</div>';
       // #create-channel-usersにappended_user_htmlを追加
       $("#create-channel-users").append(appended_user_html);
-      delete_user();
     }
 
 // 6, 5で追加されたユーザーを削除する
-    function delete_user(){
+    $(function delete_user(){
       $("#create-channel-users").on('click','.create-channel-user',function(){
         $(this).remove();
       })
-    }
+    }); 
   });

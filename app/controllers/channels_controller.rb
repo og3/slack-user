@@ -29,7 +29,12 @@ class ChannelsController < ApplicationController
 
   def update
     if @channel.update(channel_params)
-      redirect_to team_channel_messages_path(params[:team_id], @channel.id), notice: 'Success to edit channel!!'
+      # channelにmasterのuserが属していない場合、team一覧にリダイレクトする。
+      if (@channel.users & current_master.users).empty?
+        redirect_to team_path(params[:team_id]), notice: 'you left channel'
+      else
+        redirect_to team_channel_messages_path(params[:team_id], @channel.id), notice: 'Success to edit channel!!'
+      end
     else
       flash[:alert] = 'Fail to update channel'
       render :edit

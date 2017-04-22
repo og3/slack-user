@@ -22,6 +22,13 @@
         = f.label 'channel member', class: 'create-channel-form__label'
       .create-channel-form__field--right
         #create-channel-users
+          - @users.each do |user|
+            .create-channel-user.clearfix
+              %input{name: "channel[user_ids][]", type: "hidden", value: user.id }
+              %p.create-channel-user__name
+                = user.user_name
+              %a{class: "user-search-remove create-channel-user__btn create-channel-user__btn--remove", data: {user_id: user.id}}
+                = "削除"
           #create-channel-user-22.create-channel-user.clearfix
     .create-channel-form__field.clearfix
       .create-channel-form__field--left

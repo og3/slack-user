@@ -24,6 +24,7 @@ class ChannelsController < ApplicationController
   end
 
   def edit
+    @users = @channel.users
   end
 
   def update

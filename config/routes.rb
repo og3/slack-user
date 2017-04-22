@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     end
   end
   resources :masters, only: [:show]
+  # ajax通信用のルーティング。usersコントローラーからそれぞれのuser一覧を取得する。
   get '/teams/:team_id/users' => "users#index"
-  
 end

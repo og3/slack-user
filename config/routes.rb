@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :channels, only: [:new, :create, :edit, :update, :destroy, :index] do
       resources :messages, only: [:index, :create]
     end
+    resources :directs, only: [:new, :create, :edit, :update, :destroy, :index] do
+      resources :messages, only: [:index, :create]
+    end
   end
   resources :masters, only: [:show]
   # ajax通信用のルーティング。usersコントローラーからそれぞれのuser一覧を取得する。

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422092850) do
+ActiveRecord::Schema.define(version: 20170423024026) do
 
   create_table "channel_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "channel_id"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20170422092850) do
     t.string   "team_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "direct_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "direct_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["direct_id"], name: "index_direct_users_on_direct_id", using: :btree
+    t.index ["user_id"], name: "index_direct_users_on_user_id", using: :btree
   end
 
   create_table "directs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

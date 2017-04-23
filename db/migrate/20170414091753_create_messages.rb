@@ -8,6 +8,7 @@ class CreateMessages < ActiveRecord::Migration[5.0]
       t.references :team
       t.references :user
       t.references :channel
+      t.references :direct
       t.timestamps
     end
   end

@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20170423024026) do
   end
 
   create_table "directs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
     t.string   "team_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,9 +81,11 @@ ActiveRecord::Schema.define(version: 20170423024026) do
     t.integer  "team_id"
     t.integer  "user_id"
     t.integer  "channel_id"
+    t.integer  "direct_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["channel_id"], name: "index_messages_on_channel_id", using: :btree
+    t.index ["direct_id"], name: "index_messages_on_direct_id", using: :btree
     t.index ["master_id"], name: "index_messages_on_master_id", using: :btree
     t.index ["team_id"], name: "index_messages_on_team_id", using: :btree
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree

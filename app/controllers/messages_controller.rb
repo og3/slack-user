@@ -3,24 +3,45 @@ class MessagesController < ApplicationController
   before_action :authenticate_master!
 
   def index
-    # 現在表示しているchannelの情報を取得する。viewではchannel名を表示させるために使う。
-    @channel = Channel.find(params[:channel_id])
-    # 現在表示しているteamの情報を取得する。viewではteam名を表示させるために使う。
-    @team = Team.find(params[:team_id])
     # 現在表示しているteamに所属しているuserの情報を取得する。
     @user = User.find_by(master_id: current_master.id,team_id: params[:team_id])
+    # 上で取得したuserが所属しているdirectを取得する。viewではこれらを一覧で表示する。
+    @directs = @user.directs
     # 上で取得したuserが所属しているchannelを取得する。viewではこれらを一覧で表示する。
     @channels = @user.channels
-    # 上で取得したchannelが持っているmessageを取得する。
-    @channel_messages = @channel.messages
-    # 入力されたmessageを受け取るため、インスタンスを作成する。
-    @message = Message.new
-    respond_to do |format|
-      format.html { render :index}
-      format.json {
-        render json: @channel_messages.map(&:for_js)
-        } 
-      end
+    # 現在表示しているteamの情報を取得する。viewではteam名を表示させるために使う。
+    @team = Team.find(params[:team_id])
+    # urlにより処理を分岐させる。
+    @channel_id = params[:channel_id]
+    if @channel_id.nil?
+      @direct = Direct.find(params[:direct_id])
+      # 上で取得したchannelが持っているmessageを取得する。
+      @direct_messages = @direct.messages
+      # directのリンクでuser名を表示するため。
+      @direct_users = @direct.users
+      @message = Message.new
+      # render :file => "messages/direct_index.html.haml"
+      respond_to do |format|
+        format.html { render template: "messages/direct_index" }
+        format.json {
+          render json: @direct_messages.map(&:for_js)
+          } 
+        end
+    else
+      # 現在表示しているchannelの情報を取得する。viewではchannel名を表示させるために使う。
+      @channel = Channel.find(params[:channel_id])
+      # 上で取得したchannelが持っているmessageを取得する。
+      @channel_messages = @channel.messages
+      # 入力されたmessageを受け取るため、インスタンスを作成する。
+      @message = Message.new
+      respond_to do |format|
+        format.html { render template: "messages/channel_index"}
+        format.json {
+          render json: @channel_messages.map(&:for_js)
+          } 
+        end
+    end
+
   end
 
   def create #ここでの変数はviewでは使うことがないので、ローカル変数にする

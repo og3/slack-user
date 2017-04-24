@@ -1,0 +1,29 @@
+.message_sidebar
+  = render 'teams/team_sidebar', team: @team
+  .message_sidebar__channel_container
+    = render 'messages/channel_links'
+  .message_sidebar__direct_container
+    = render 'messages/direct_links'
+
+.message_main
+  .message_main__header
+    .message_main__header__title
+      - @direct_users.each do |user|
+        %p.left #{user.user_name},
+    .message_main__header__members
+      .message_main__header__members__member_edit_delete
+      -#   = link_to "EDIT", edit_team_channel_path(params[:team_id], @channel.id), class: "edit_delete_links"
+      -# .message_main__header__members__member_edit_delete
+      -#   = link_to "DELETE", team_channel_path(params[:team_id], @direct.id), method: :delete, class: "edit_delete_links "
+
+  .message_main__body
+    %ul.message_main__body__list
+      = render partial: 'messages/message', collection: @direct_messages
+
+  .message_main__footer
+    = form_for @message, url: team_direct_messages_path do |f|
+      = f.text_field :text, placeholder: "Message to", class: "message_main__footer__input_message"
+      = f.submit class: "send-button"
+
+
+

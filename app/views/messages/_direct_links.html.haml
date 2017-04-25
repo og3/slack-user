@@ -1,5 +1,5 @@
 .message_sidebar__direct_container__directs
-  = link_to "DIRECT_MESSAGES", "/", class: "message_links"
+  = link_to "DIRECT_MESSAGES(#{@user.directs.count})", team_directs_path, class: "message_links"
 .message_new
   = link_to "new", new_team_direct_path(@team.id),class: "message_links"
 %ul.message_channel__list

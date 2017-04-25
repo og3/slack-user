@@ -23,6 +23,8 @@ class TeamsController < ApplicationController
     @user = User.find_by(master_id: current_master.id,team_id: params[:id])
     # userの所属しているchannelを全て取得する。
     @channels = @user.channels
+    # userが所属しているdirectを取得する。viewではこれらを一覧で表示する。
+    @directs = @user.directs
   end
   # def join
   #   # ログイン中のユーザーのinvited_by_idを取得する

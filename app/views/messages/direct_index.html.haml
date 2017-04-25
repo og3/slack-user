@@ -12,9 +12,9 @@
         %p.left #{user.user_name},
     .message_main__header__members
       .message_main__header__members__member_edit_delete
-      -#   = link_to "EDIT", edit_team_channel_path(params[:team_id], @channel.id), class: "edit_delete_links"
-      -# .message_main__header__members__member_edit_delete
-      -#   = link_to "DELETE", team_channel_path(params[:team_id], @direct.id), method: :delete, class: "edit_delete_links "
+        = link_to "EDIT", edit_team_direct_path(params[:team_id], @direct.id), class: "edit_delete_links"
+      .message_main__header__members__member_edit_delete
+        = link_to "DELETE", team_direct_path(params[:team_id], @direct.id), method: :delete, class: "edit_delete_links "
 
   .message_main__body
     %ul.message_main__body__list
@@ -22,7 +22,7 @@
 
   .message_main__footer
     = form_for @message, url: team_direct_messages_path do |f|
-      = f.text_field :text, placeholder: "Message to", class: "message_main__footer__input_message"
+      = f.text_field :text, placeholder: "Message", class: "message_main__footer__input_message"
       = f.submit class: "send-button"
 
 

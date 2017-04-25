@@ -1,0 +1,31 @@
+.create-direct-form
+  %h1 Edit a direct
+  = form_for @direct, url: team_direct_path do |f|
+    .create-direct-form__field.clearfix
+      .create-direct-form__field--left
+    .create-direct-form__field.clearfix
+      .create-direct-form__field--left
+        = f.label :user_ids, 'Invite user', class: 'create-direct-form__label'
+      .create-direct-form__field--right
+        .create-direct-form__search.clearfix
+          .user-search-field.create-direct-form__input
+            .create-direct-form__search.clearfix
+              %input#create-direct_user.create-direct-form__input{ type: "text", placeholder: 'Search by name' }
+            #user-search-result
+    .create-direct-form__field.clearfix
+      .create-direct-form__field--left
+        = f.label 'direct member', class: 'create-direct-form__label'
+      .create-direct-form__field--right
+        #create-direct-users
+          - @users.each do |user|
+            .create-direct-user.clearfix
+              %input{name: "direct[user_ids][]", type: "hidden", value: user.id }
+              %p.create-direct-user__name
+                = user.user_name
+              %a{class: "user-search-remove create-direct-user__btn create-direct-user__btn--remove", data: {user_id: user.id}}
+                = "削除"
+          #create-direct-user-22.create-direct-user.clearfix
+    .create-direct-form__field.clearfix
+      .create-direct-form__field--left
+      .create-direct-form__field--right
+        = f.submit 'Create direct', class: 'create-direct-form__action-btn'
